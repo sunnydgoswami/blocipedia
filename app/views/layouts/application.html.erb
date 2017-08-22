@@ -12,10 +12,24 @@
       <ul class='nav nav-tabs'>
           <li><%= link_to "Home", welcome_index_path %></li>
           <li><%= link_to "About", welcome_about_path %></li>
+          
+          <div class="pull-right user-info">
+              <% if user_signed_in? %>
+                   Logged in as <strong><%= current_user.email %></strong>.
+                       <div class="pull-right">
+                            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                       </div>
+              <% else %>
+                   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+                   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+              <% end %>
+          </div>
       </ul>
   </div>
-  
 
+<center><h2 class="notice"><%= notice %></h2></center>
+<center><h2 class="alert"><%= alert %></h2></center>
 <%= yield %>
 
 </body>
