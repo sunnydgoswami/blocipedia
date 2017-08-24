@@ -6,19 +6,17 @@
     email: Faker::Internet.free_email,
     password: Faker::Lorem.characters(8)
     )
-  user.skip_confirmation!
   user.save!
 end
 
   3.times do
     user = User.new(
-      name:Faker::Name.name,
+      name: Faker::Name.name,
       email: Faker::Internet.free_email,
       password: Faker::Lorem.characters(8),
       role: 'premium_user'
       )
 
-    user.skip_confirmation!
     user.save!
 
   end
@@ -29,7 +27,6 @@ end
     password: 'helloworld',
     role: 'admin')
 
-  user.skip_confirmation!
   user.save!
 
   user = User.new(
@@ -37,7 +34,6 @@ end
     email: 'user@example.com',
     password: 'helloworld',
     role: 'standard_user')
-  user.skip_confirmation!
   user.save!
 
   user = User.new(
@@ -45,7 +41,6 @@ end
     email: 'premium@example.com',
     password: 'helloworld',
     role: 'premium_user')
-  user.skip_confirmation!
   user.save!
 
  users = User.all
