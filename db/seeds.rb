@@ -42,7 +42,7 @@ end
     password: 'helloworld',
     role: 'premium_user')
   user.save!
-
+  
  users = User.all
 
 15.times do
