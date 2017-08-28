@@ -16,8 +16,8 @@ class ChargesController < ApplicationController
  
     current_user.update_attributes(role: 'premium_user', stripe_id: customer.id)
     
-    flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
-    redirect_to user_path(current_user) # or wherever
+    flash[:notice] = "Thanks for all the money, #{current_user.email}!"
+    redirect_to user_path(current_user)
  
     rescue Stripe::CardError => e
         flash[:alert] = e.message

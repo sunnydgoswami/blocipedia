@@ -6,9 +6,11 @@
     </div>
     <div class="col-md-4">
         <%= link_to "Back", wikis_path, class: 'btn btn-success' %>
-        <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
-            <% if policy(@wiki).destroy? %>
-                <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this wiki?'} %>
+        <% if current_user.present? %>
+            <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
+                <% if policy(@wiki).destroy? %>
+                    <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this wiki?'} %>
+                <% end %>
             <% end %>
     </div>
 </div>
