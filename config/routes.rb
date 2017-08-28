@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registration: 'registrations' }
+  devise_for :users
   
   devise_scope :user do
     get '/downgrade' => 'registrations#downgrade'
